@@ -51,9 +51,13 @@ public class IntegerArrayUtils {
     public static Integer[] incrementEvenDecrementOdd(Integer[] integerArray) {
         ArrayList<Integer> clone = new ArrayList<>(Arrays.asList(integerArray));
         Integer[] result = clone.toArray(new Integer[clone.size()]);
-        Integer[] incremented = incrementEven(result);
-        Integer[] decremented = decrementOdd(incremented);
-        return decremented;
+        int index = 0;
+        for (Integer i : integerArray) {
+            if (i % 2 == 0) result[index] = (i + 1);
+            else result[index] = (i - 1);
+            index++;
+        }
+        return result;
     }
 
     /**
@@ -65,7 +69,7 @@ public class IntegerArrayUtils {
         int index = 0;
         for (Integer i : integerArray) {
             if (i % 2 == 0) {
-                result[index] = i++;
+                result[index] = (i + 1);
             }else {result[index] = i;}
             index++;
         }
@@ -80,8 +84,9 @@ public class IntegerArrayUtils {
         Integer[] result = new Integer[input.length];
         int index = 0;
         for (Integer i : input) {
-            if (i % 2 == 1) result[index] = i--;
-            else result[index] = i;
+            if (i % 2 != 0) {
+                result[index] = (i - 1);
+            } else result[index] = i;
             index++;
         }
         return result;
