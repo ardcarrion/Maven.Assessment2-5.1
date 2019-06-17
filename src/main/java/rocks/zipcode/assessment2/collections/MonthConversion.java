@@ -37,8 +37,9 @@ public class MonthConversion {
      * @param monthName - name of month
      * @return - the ordinal of the month in the year
      */
-    public int getNumber(String monthName) {
-        return monthsByName.getOrDefault(monthName, null);
+    public Integer getNumber(String monthName) {
+        if (monthsByName == null) return null;
+        return monthsByName.get(monthName);
     }
 
     /**
